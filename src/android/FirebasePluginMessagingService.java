@@ -132,9 +132,10 @@ public class FirebasePluginMessagingService extends FirebaseMessagingService {
 
     // TODO: Add option to developer to configure if show notification when app on foreground
     if (!TextUtils.isEmpty(text) || !TextUtils.isEmpty(title) || (!data.isEmpty())) {
-      boolean showNotification = (FirebasePlugin.inBackground() || !FirebasePlugin.hasNotificationsCallback()) && (!TextUtils.isEmpty(text) || !TextUtils.isEmpty(title));
-      Log.d(TAG, "showNotification: " + (showNotification ? "true" : "false"));
-      sendNotification(id, title, text, data, showNotification, sound, lights, image, bigIcon);
+      //boolean showNotification = (FirebasePlugin.inBackground() || !FirebasePlugin.hasNotificationsCallback()) && (!TextUtils.isEmpty(text) || !TextUtils.isEmpty(title));
+      //Log.d(TAG, "showNotification: " + (showNotification ? "true" : "false"));
+      //sendNotification(id, title, text, data, showNotification, sound, lights, image, bigIcon);
+	  sendNotification(id, title, text, data, true, sound, lights, image, bigIcon);
     }
   }
 
