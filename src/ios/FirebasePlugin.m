@@ -167,9 +167,6 @@ static FirebasePlugin *firebasePlugin;
             [self sendNotification:userInfo];
         }
         [self.notificationStack removeAllObjects];
-    } else {
-        CDVPluginResult *pluginResult = [CDVPluginResult resultWithStatus:CDVCommandStatus_OK];
-        [self.commandDelegate sendPluginResult:pluginResult callbackId:command.callbackId];
     }
 }
 
@@ -188,12 +185,9 @@ static FirebasePlugin *firebasePlugin;
         [pluginResult setKeepCallbackAsBool:YES];
         [self.commandDelegate sendPluginResult:pluginResult callbackId:self.notificationCallbackId];
     } else {
-		
         if (!self.notificationStack) {
             self.notificationStack = [[NSMutableArray alloc] init];
         }
-		
-		NSLog(@"FirebasePlugin - sendNotificaion else, object : %@",self.notificationStack);
 
         // stack notifications until a callback has been registered
         [self.notificationStack addObject:userInfo];
